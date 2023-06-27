@@ -357,7 +357,7 @@ Update the `App` component to manage authentication state:
 
 Here are the pieces of functionality that should be built out for the backend:
 
-- [ ] **Project setup**
+- [x] **Project setup**
   - [x] First things first, bootstrap the Express application with some essential files and starter code
   - [x] Create a `.gitignore` file, an `app.js` file, an `app.test.js` file, and a `server.js` file
   - [x] Make sure `node_modules` are added to the `.gitignore` file.
