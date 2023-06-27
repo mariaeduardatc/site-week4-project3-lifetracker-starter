@@ -4,7 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
 
-// put errors here later maybe
+const { BadRequestError, NotFoundError, Unauthorized } = require("./utils/errors")
 const config = require("./config");
 const authRoutes = require("./routes/auth");
 
