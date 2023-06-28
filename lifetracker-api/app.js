@@ -22,3 +22,6 @@ app.get("/", function (req, res) {
       ping: "pong",
     })
   })
+
+
+module.exports = app

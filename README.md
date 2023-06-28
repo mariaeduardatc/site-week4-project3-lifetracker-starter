@@ -54,17 +54,17 @@ Implement any of the following features to improve the application:
 
 #### The `App` Component
 
-- [ ] Build the `App` component to:
-  - [ ] Be wrapped by an element with the class name of `app`
-  - [ ] Contain the routes for the app
-  - [ ] Render the `Navbar` component on every route
-  - [ ] Render a `BrowserRouter` component that contains a `Routes` component with the following routes:
-    - [ ] `/` - Render the `Landing` component
-    - [ ] `/login` - Render the `LoginPage` component
-    - [ ] `/register` - Render the `RegistrationPage` component
-    - [ ] `/activity` - Render the `ActivityPage` component **only** if the user is logged in, otherwise it renders the `AccessForbidden` component
-    - [ ] `/nutrition/*` - Render the `NutritionPage`component **only** if the user is logged in, otherwise it renders the`AccessForbidden` component
-    - [ ] `*` - Anything else renders the `NotFound` component
+- [x] Build the `App` component to:
+  - [x] Be wrapped by an element with the class name of `app`
+  - [x] Contain the routes for the app
+  - [x] Render the `Navbar` component on every route
+  - [x] Render a `BrowserRouter` component that contains a `Routes` component with the following routes:
+    - [x] `/` - Render the `Landing` component
+    - [x] `/login` - Render the `LoginPage` component
+    - [x] `/register` - Render the `RegistrationPage` component
+    - [x] `/activity` - Render the `ActivityPage` component **only** if the user is logged in, otherwise it renders the `AccessForbidden` component
+    - [x] `/nutrition/*` - Render the `NutritionPage`component **only** if the user is logged in, otherwise it renders the`AccessForbidden` component
+    - [] `*` - Anything else renders the `NotFound` component
 
 #### Handling API Requests
 
@@ -111,17 +111,17 @@ Update the `App` component to manage authentication state:
 
 #### Implement the `Loading` Component
 
-- [ ] Build the **`Loading`** component to:
-  - [ ] Render JSX that is wrapped by an element with the class name of `loading`
-  - [ ] Render an element with the class name of `loading-message` that contains the text `"Loading"`
+- [x] Build the **`Loading`** component to:
+  - [x] Render JSX that is wrapped by an element with the class name of `loading`
+  - [x] Render an element with the class name of `loading-message` that contains the text `"Loading"`
 
 #### Implement the `Navbar` Component
 
-- [ ] Build the **`Navbar`** component to:
-  - [ ] Render JSX that is wrapped by a `nav` element with the class name of `navbar`
-  - [ ] Render the app's logo as an element with the class name of `logo`.
-    - [ ] Inside that element should be a `Link` component from `react-router-dom` that navigates the user to the `/` route when clicked.
-    - [ ] Inside that `Link` component should be the application's logo (text or image).
+- [x] Build the **`Navbar`** component to:
+  - [x] Render JSX that is wrapped by a `nav` element with the class name of `navbar`
+  - [x] Render the app's logo as an element with the class name of `logo`.
+    - [x] Inside that element should be a `Link` component from `react-router-dom` that navigates the user to the `/` route when clicked.
+    - [x] Inside that `Link` component should be the application's logo (text or image).
   - [ ] Render the `NavLinks.jsx` component with links to each of the resources and the `/activity` route.
 
 #### Implement the `NavLinks` Component
@@ -469,15 +469,15 @@ Here are the pieces of functionality that should be built out for the backend:
           - [ ] Actions that should occur after all tests in a particular file run.
           - [ ] This should include things like ending any open database client connections
   - [ ] Commit all work to `git`
-- [ ] **Authentication**
-  - [ ] Go ahead and build out a full-fledged authentication flow using PostgreSQL, `bcrypt`, and JSON Web Tokens. For it all to work, we'll need a `User` model, a `security` middleware, some `tokens` utility functions, and the appropriate `auth` routes.
-  - [ ] Add new directories for `models`, `routes`, and `middleware`
-  - [ ] The **User** model
-    - [ ] In the `models` directory, create two new files: `models/user.js` and `models/user.test.js`
-      - [ ] The `User` model should have **at least** the following static methods:
-        - [ ] `login`
-        - [ ] `register`
-        - [ ] `fetchUserByEmail`
+- [x] **Authentication**
+  - [x] Go ahead and build out a full-fledged authentication flow using PostgreSQL, `bcrypt`, and JSON Web Tokens. For it all to work, we'll need a `User` model, a `security` middleware, some `tokens` utility functions, and the appropriate `auth` routes.
+  - [x] Add new directories for `models`, `routes`, and `middleware`
+  - [x] The **User** model
+    - [x] In the `models` directory, create two new files: `models/user.js` and `models/user.test.js`
+      - [x] The `User` model should have **at least** the following static methods:
+        - [x] `login`
+        - [x] `register`
+        - [x] `fetchUserByEmail`
     - [ ] In the `models/user.test.js` file:
       - [ ] Test the `login` method. Write test cases for:
         - [ ] User can login successfully with proper credentials
@@ -495,12 +495,12 @@ Here are the pieces of functionality that should be built out for the backend:
     - [ ] In the `models/user.js` file:
       - [ ] Import the `bcrypt` package, the `db` client, and the app `config`.
       - [ ] Implement the features outlined in the tests until they're all passing.
-  - [ ] Commit all work to `git`
-  - [ ] The **tokens** utility functions
-    - [ ] In the `utils` directory, create two new files: `utils/tokens.js` and `utils/tokens.test.js`
-      - [ ] At the bare minimum, two functions will be needed:
-        - [ ] One that accepts a JSON payload as an argument and converts it into a JWT
-        - [ ] One that accepts a JWT as an argument, validates it, and returns the JSON payload encoded within - if it's valid
+  - [x] Commit all work to `git`
+  - [x] The **tokens** utility functions
+    - [x] In the `utils` directory, create two new files: `utils/tokens.js` and `utils/tokens.test.js`
+      - [x] At the bare minimum, two functions will be needed:
+        - [x] One that accepts a JSON payload as an argument and converts it into a JWT
+        - [x] One that accepts a JWT as an argument, validates it, and returns the JSON payload encoded within - if it's valid
     - [ ] In the `utils/tokens.test.js` file:
       - [ ] Write test cases for:
         - [ ] Can create valid JWT tokens for user payloads
@@ -508,7 +508,7 @@ Here are the pieces of functionality that should be built out for the backend:
         - [ ] No payload gets returned when invalid tokens are parsed
     - [ ] In the `utils/tokens.js` file:
       - [ ] Implement the features outlined in the tests until they're all passing
-  - [ ] Commit all work to `git`
+  - [x] Commit all work to `git`
   - [ ] The **security** middleware
     - [ ] In the `middleware` directory, create two new files: `middleware/security.js` and `middleware/security.test.js`
       - [ ] One middleware will be responsible for extracting a user from a valid JWT in the request:
@@ -532,8 +532,8 @@ Here are the pieces of functionality that should be built out for the backend:
       - [ ] Implement the features outlined in the tests until they're all passing
     - [ ] In the `app.js` file, add the `Authentication` header parsing middleware to the Express app's middleware pipeline
   - [ ] Commit all work to `git`
-  - [ ] The **/auth** routes
-    - [ ] In the `routes` directory, create two new files: `routes/auth.js` and `routes/auth.test.js`
+  - [x] The **/auth** routes
+    - [x] In the `routes` directory, create two new files: `routes/auth.js` and `routes/auth.test.js`
       - [ ] A new Express router should be created. It should handle:
         - [ ] A `GET` request to the `/me` endpoint
           - [ ] It should send a JSON response back to the client with the user info like so: `{ "user": { "email": "user@gmail.com", ... } }`
