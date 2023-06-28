@@ -1,6 +1,7 @@
 import './Navbar.css'
 
 import logo from '../../assets/codepath.svg'
+import NavLinks from '../NavLinks/NavLinks'
 
 
 function Navbar() {
@@ -11,7 +12,7 @@ function Navbar() {
         <a href="/">
             <img src={logo} alt="codepath logo" />
         </a>
-       
+       <NavLinks />
 
     </nav>
   )
