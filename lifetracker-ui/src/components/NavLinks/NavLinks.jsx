@@ -1,8 +1,17 @@
+import { useState } from 'react'
 import './NavLinks.css'
 import { Link } from "react-router-dom"
 
 
-function NavLinks() {
+function NavLinks( {setClickedLogin, setClickedRegister}) {
+
+    function handleLoginButton(){
+        setClickedLogin(true)
+    }
+
+    function handleRegisterButton(){
+        setClickedRegister(true)
+    }
 
   return (
     <nav className='navLinks'>
@@ -18,12 +27,13 @@ function NavLinks() {
         <Link to="/sleep">
             Sleep
         </Link>
-        <Link to="/register">
-            <button>Sign In</button>
+        <Link to="/auth/register">
+            <button onClick={handleRegisterButton}>Sign In</button> 
         </Link>
-        <Link to="/login">
-            <button>Login</button>
+        <Link to="/auth/login">
+            <button onClick={handleLoginButton}>Login</button>
         </Link>
+            
     </nav>
   )
 }

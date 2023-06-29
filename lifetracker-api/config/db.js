@@ -14,3 +14,5 @@ db.connect((err) => {
         console.log("Successfully connected to postgres database!".blue);
     }
 });
+
+module.exports = db

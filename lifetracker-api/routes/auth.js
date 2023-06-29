@@ -10,7 +10,7 @@ router.post('/register', async (req, res) => {
         const user = await User.register(req.body)
         res.status(201).json({user})
     } catch(err) {
-        next(err)
+        throw err
     }
     
 })

@@ -160,35 +160,35 @@ Update the `App` component to manage authentication state:
 
 #### Implement the `LoginPage` Component
 
-- [ ] Build the **`LoginPage`** component to:
-  - [ ] Render JSX that is wrapped by an element with the class name of `login-page`
-  - [ ] Using either a custom hook, context, or manually set state, check to see if a user is already logged in
-    - [ ] If the user is already logged in, redirect them to the `/activity` page.
-    - [ ] If no user is authenticated, render the `LoginForm` component and pass it any props it needs.
+- [x] Build the **`LoginPage`** component to:
+  - [x] Render JSX that is wrapped by an element with the class name of `login-page`
+  - [x] Using either a custom hook, context, or manually set state, check to see if a user is already logged in
+    - [x] If the user is already logged in, redirect them to the `/activity` page.
+    - [x] If no user is authenticated, render the `LoginForm` component and pass it any props it needs.
 
 #### Implement the `RegistrationForm` Component
 
-- [ ] Build the **`RegistrationForm`** component to:
-  - [ ] Render JSX that is wrapped by an element with the class name of `registration-form`
-  - [ ] Should render an input element for the following fields:
-    - [ ] `email`
-    - [ ] `username`
-    - [ ] `firstName`
-    - [ ] `lastName`
-    - [ ] `password`
-    - [ ] `passwordConfirm`
-  - [ ] Each `input` element in the form should have a class name of `form-input` and should have the following props set:
-    - [ ] `name` - the `name` of the `input` field being rendered (`email`, `username`, `firstName`, `lastName`, `password`, `passwordConfirm`)
-    - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc.)
-    - [ ] `value` - the current value of the `input` element
-    - [ ] `onChange` - the `onChange` handler function
+- [x] Build the **`RegistrationForm`** component to:
+  - [x] Render JSX that is wrapped by an element with the class name of `registration-form`
+  - [x] Should render an input element for the following fields:
+    - [x] `email`
+    - [x] `username`
+    - [x] `firstName`
+    - [x] `lastName`
+    - [x] `password`
+    - [x] `passwordConfirm`
+  - [x] Each `input` element in the form should have a class name of `form-input` and should have the following props set:
+    - [x] `name` - the `name` of the `input` field being rendered (`email`, `username`, `firstName`, `lastName`, `password`, `passwordConfirm`)
+    - [x] `type` - the type of the `input` element (`text`, `email`, `number`, etc.)
+    - [x] `value` - the current value of the `input` element
+    - [x] `onChange` - the `onChange` handler function
   - [ ] Validate the `email` field: If the user has entered text into the `email` field and it doesn't contain an `@` symbol, then an error message should be displayed in an element with the class name of `error` indicating that the entry is not a valid email.
   - [ ] Validate the `password` and `passwordConfirm` fields: If the user has entered text into the `password` and `passwordConfirm` fields and they don't match, then a message should be displayed in an element with the `className` of `error` with a message that contains the text: `passwords don't match`
   - [ ] Gracefully handle errors:
     - [ ] If the user has attempted to login and gotten a `401` error, then the `errors` object should contain a `form` property that contains a message indicating that the `email` and `password` combination is incorrect.
     - [ ] If the user has attempted to login and gotten a `400` or `422` error, then the `errors` object should contain a `form` property that contains a message indicating what went wrong.
-  - [ ] There should be a `button` element with the `className` of `submit-registration`:
-    - [ ] It should contain the text `"Create Account"`
+  - [x] There should be a `button` element with the `className` of `submit-registration`:
+    - [x] It should contain the text `"Create Account"`
     - [ ] When clicked, it should call the `signupUser` function
 
 #### Implement the `RegistrationPage` component

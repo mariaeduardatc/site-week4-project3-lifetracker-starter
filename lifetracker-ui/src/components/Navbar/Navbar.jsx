@@ -4,15 +4,15 @@ import logo from '../../assets/codepath.svg'
 import NavLinks from '../NavLinks/NavLinks'
 
 
-function Navbar() {
+function Navbar( {setClickedLogin, setClickedRegister}) {
 
   return (
     <nav className='navbar'>
-        <div className='navbar-message'>Loading</div>
+        {/* <div className='navbar-message'>Loading</div> */}
         <a href="/">
             <img src={logo} alt="codepath logo" />
         </a>
-       <NavLinks />
+       <NavLinks  setClickedRegister={() => {setClickedRegister(false)}}  setClickedLogin={()=>{setClickedRegister(false)}}/>
 
     </nav>
   )

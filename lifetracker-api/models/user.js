@@ -19,16 +19,17 @@ class User {
   static _createUser(user) {
     return {
       id: user.id,
+      username: user.username,
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,
-      location: user.location,
-      date: user.date,
+      password: user.password
     };
   }
 
   static async register(creds) {
     const { email, username, password, firstName, lastName } = creds;
+    console.log('registering')
     const requiredCreds = [
       "email",
       "username",
@@ -38,6 +39,7 @@ class User {
     ];
 
     try {
+      console.log('creds', creds)
       validateFields({
         required: requiredCreds,
         obj: creds,
@@ -61,7 +63,7 @@ class User {
             username,
             first_name,
             last_name,
-            email,
+            email
           )
           VALUES ($1, $2, $3, $4, $5)
           RETURNING id,
@@ -102,6 +104,21 @@ class User {
     throw new UnauthorizedError("Invalid username/password");
   }
 
-  static fetchByUserEmail(user) {}
+  static async fetchUserByEmail(email) {
+    const result = await db.query(
+      `SELECT id,
+              email, 
+              password,
+              first_name AS "firstName",
+              last_name AS "lastName"       
+           FROM users
+           WHERE email = $1`,
+      [email.toLowerCase()]
+    );
+    const user = result.rows[0];
+  
+    return user;  
+  
+  }
 }
 module.exports = User
