@@ -6,7 +6,7 @@ require("colors")
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3001
 const IS_TESTING = process.env.NODE_ENV === "test"
 
-// Use dev database, testing database, or via env var, production database
+// // Use dev database, testing database, or via env var, production database
 function getDatabaseUri() {
   const dbUser = process.env.DATABASE_USER || "postgres"
   const dbPass = process.env.DATABASE_PASS ? encodeURI(process.env.DATABASE_PASS) : "postgres"
@@ -22,11 +22,11 @@ function getDatabaseUri() {
 
 const BCRYPT_WORK_FACTOR = IS_TESTING ? 1 : 13
 
-// console.log("Vaccine Hub Config:".red)
-// console.log("PORT:".blue, PORT)
-// console.log("BCRYPT_WORK_FACTOR".blue, BCRYPT_WORK_FACTOR)
-// console.log("Database:".blue, getDatabaseUri())
-// console.log("---")
+console.log("Life Tracker Config:".red)
+console.log("PORT:".blue, PORT)
+console.log("BCRYPT_WORK_FACTOR".blue, BCRYPT_WORK_FACTOR)
+console.log("Database:".blue, getDatabaseUri())
+console.log("---")
 
 module.exports = {
   PORT,

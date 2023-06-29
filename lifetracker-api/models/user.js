@@ -1,11 +1,11 @@
 "use strict";
 
-const db = require("../db");
+const db = require("../config/db");
 const bcrypt = require("bcrypt");
-const { BadRequestError, UnauthorizedError } = require("../utils/errors");
+const { BadRequestError, UnauthorizedError } = require("../utils/error");
 const { validateFields } = require("../utils/validate");
 
-const { BCRYPT_WORK_FACTOR } = require("../config");
+const { BCRYPT_WORK_FACTOR } = require("../config/config");
 
 class User {
   /**
@@ -28,14 +28,13 @@ class User {
   }
 
   static async register(creds) {
-    const { email, password, firstName, lastName, location, date } = creds;
+    const { email, username, password, firstName, lastName } = creds;
     const requiredCreds = [
       "email",
+      "username",
       "password",
       "firstName",
       "lastName",
-      "location",
-      "date",
     ];
 
     try {
@@ -59,21 +58,18 @@ class User {
     const result = await db.query(
       `INSERT INTO users (
             password,
+            username,
             first_name,
             last_name,
             email,
-            location,
-            date
           )
-          VALUES ($1, $2, $3, $4, $5, $6)
+          VALUES ($1, $2, $3, $4, $5)
           RETURNING id,
                     email,            
                     first_name AS "firstName", 
-                    last_name AS "lastName",
-                    location,
-                    date
+                    last_name AS "lastName"
                     `,
-      [hashedPassword, firstName, lastName, normalizedEmail, location, date]
+      [hashedPassword, username, firstName, lastName, normalizedEmail]
     );
 
     const user = result.rows[0];
@@ -108,3 +104,4 @@ class User {
 
   static fetchByUserEmail(user) {}
 }
+module.exports = User
