@@ -1,0 +1,19 @@
+:root{
+    --dark-blue: #2c4047;
+    --pure-white: #fff;
+    --grey-bg: #f7f7f7;
+    --accent-orange: #ff9017;
+    --bright-red: #fe3210;
+    --muted: #969696;
+    --font-dark: #212121;
+    --font-light: #5b5b5b;
+    --border-color: #e4e4e4;
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}

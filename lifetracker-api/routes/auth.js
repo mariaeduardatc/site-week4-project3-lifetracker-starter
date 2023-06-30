@@ -15,4 +15,13 @@ router.post('/register', async (req, res) => {
     
 })
 
+router.post("/login", async function (req, res) {
+    try {
+      const user = await User.login(req.body)
+      return res.status(200).json({ user })
+    } catch (err) {
+      throw err
+    }
+})
+
 module.exports = router

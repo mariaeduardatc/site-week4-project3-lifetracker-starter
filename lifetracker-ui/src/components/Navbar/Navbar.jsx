@@ -1,21 +1,31 @@
-import './Navbar.css'
+import { Link } from "react-router-dom";
 
-import logo from '../../assets/codepath.svg'
-import NavLinks from '../NavLinks/NavLinks'
+import "./Navbar.css";
 
+import logo from "../../assets/codepath.svg";
+import NavLinks from "../NavLinks/NavLinks";
 
-function Navbar( {setClickedLogin, setClickedRegister}) {
-
+function Navbar({ setClickedLogin, setClickedRegister }) {
   return (
-    <nav className='navbar'>
-        {/* <div className='navbar-message'>Loading</div> */}
-        <a href="/">
-            <img src={logo} alt="codepath logo" />
-        </a>
-       <NavLinks  setClickedRegister={() => {setClickedRegister(false)}}  setClickedLogin={()=>{setClickedRegister(false)}}/>
+    <nav className="navbar">
+      <div className="logo">
+        <Link to="/">
+          <img src={logo} alt="codepath logo" />
+        </Link>
+      </div>
 
+      <div className="navlinks">
+        <NavLinks
+          setClickedRegister={() => {
+            setClickedRegister(false);
+          }}
+          setClickedLogin={() => {
+            setClickedRegister(false);
+          }}
+        />
+      </div>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

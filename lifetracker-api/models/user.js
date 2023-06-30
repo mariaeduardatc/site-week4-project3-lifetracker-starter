@@ -97,7 +97,7 @@ class User {
     if (user) {
       const isValid = await bcrypt.compare(password, user.password);
       if (isValid === true) {
-        return User._createPublicUser(user);
+        return User._createUser(user);
       }
     }
 

@@ -1,3 +1,19 @@
-.Navbar {
-  padding-top: 20px;
+.navbar {
+  display: flex;
+  max-width: 1310px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--grey-bg);
 }
+
+.logo{
+  margin-top: 10px;
+  margin-left: 50px;
+}
+
+.logo img{
+  height: 50px;
+}
+
+
+

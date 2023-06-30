@@ -1,9 +1,12 @@
 import { useState } from "react";
+import {useNavigate} from 'react-router-dom'
 import axios from 'axios';
 import "./RegistrationForm.css";
 
 function RegistrationForm({setAppState}) {
+    const navigate = useNavigate()
     const [errors, setErrors] = useState({})
+    const [isLoading, setIsLoading] = useState(false)
     const [register, setRegister] = useState({
         email: '',
         username: '',
@@ -24,6 +27,19 @@ function RegistrationForm({setAppState}) {
 
 
     const singupUser = async () => {
+        console.log(register)
+        setIsLoading(true)
+        setErrors((e) => ({ ...e, register: null }))
+
+        if (register.passwordConfirm !== register.password) {
+            console.log('test')
+            setErrors((e) => ({ ...e, passwordConfirm: "Passwords do not match." }))
+            setIsLoading(false)
+            return
+          } else {
+            setErrors((e) => ({ ...e, passwordConfirm: null }))
+          }
+      
         try {
             const response = await axios.post(
                 "http://localhost:3001/auth/register", {
@@ -35,17 +51,19 @@ function RegistrationForm({setAppState}) {
                 }
             )
             if (response?.data?.user){
-                setAppState(res.data)
-                // setIsLoading(false)
-                navigate("/")
+                setAppState(response.data)
+                setIsLoading(false)
+                navigate("/portal")
             }
             else{
                 setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
+                setIsLoading(false)
             }
         } catch (err) {
             console.log(err)
             const message = err?.response?.data?.error?.message
             setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
+            setIsLoading(false)
         }
         
     }
@@ -100,7 +118,8 @@ function RegistrationForm({setAppState}) {
             value={register.passwordConfirm}
             onChange={handleRegister}
         ></input>
-        <button className="submit-registration" onClick={singupUser}>Create Account</button>
+        {errors.passwordConfirm && <span className="error">{errors.passwordConfirm}</span>}
+        <button className="btn" onClick={singupUser} disabled={isLoading} >{isLoading ? "Loading..." : "Create Account"}</button>
     </div>
   );
 }
