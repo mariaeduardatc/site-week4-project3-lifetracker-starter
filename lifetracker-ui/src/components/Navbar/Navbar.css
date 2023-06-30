@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: var(--grey-bg);
+  padding: 10px;
 }
 
 .logo{
