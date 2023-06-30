@@ -28,10 +28,10 @@ function NavLinks( {setClickedLogin, setClickedRegister}) {
             Sleep
         </Link>
         <Link to="/auth/register">
-            <button onClick={handleRegisterButton}>Sign In</button> 
+            <button onClick={handleRegisterButton} className='btn' id='register'>Register</button> 
         </Link>
         <Link to="/auth/login">
-            <button onClick={handleLoginButton}>Login</button>
+            <button onClick={handleLoginButton} className='btn'>Sign In</button>
         </Link>
             
     </nav>

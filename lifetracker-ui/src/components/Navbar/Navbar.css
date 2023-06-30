@@ -1,6 +1,5 @@
 .navbar {
   display: flex;
-  max-width: 1310px;
   justify-content: space-between;
   align-items: center;
   background-color: var(--grey-bg);
@@ -13,6 +12,10 @@
 
 .logo img{
   height: 50px;
+}
+
+.navlinks{
+  margin-right: 60px;
 }
 
 

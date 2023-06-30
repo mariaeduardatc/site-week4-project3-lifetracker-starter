@@ -7,7 +7,12 @@ function LandingPage() {
   return (
     <div className="landing-page">
       <div className='hero'>
-        <img src={hero} alt=""  className='hero'/>
+        <div className='description'>
+          <div className='title'>LifeTracker</div>
+          <p>Helping you take back control of your world.</p>
+        </div>
+
+        <img src={hero} alt=""id='landing-img'/>
       </div>
     </div>
   );

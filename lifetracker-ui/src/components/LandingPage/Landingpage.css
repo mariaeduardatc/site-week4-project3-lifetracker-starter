@@ -1,4 +1,25 @@
-img{
-    height: 100px;
-    width: 100px;
+.hero{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    color: var(--dark-blue);
+}
+
+.title{
+    font-size: 60px;
+    font-weight: 600;
+}
+
+.description p{
+    font-size: 24px;
+    font-weight: 300;
+}
+
+
+#landing-img{
+    height: 400px;
+    width: 600px;
+    border-radius: 20px;
 }

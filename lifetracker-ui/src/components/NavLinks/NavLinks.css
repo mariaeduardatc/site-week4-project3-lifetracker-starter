@@ -1,0 +1,26 @@
+.navLinks{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.navLinks a{
+    color: var(--accent-green);
+}
+
+.btn{
+    background-color: var(--dark-blue);
+    padding: 10px;
+    color: var( --border-color);
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#register{
+    background-color: var(--grey-bg);
+    border: solid;
+    color: var(--dark-blue);
+}
+
