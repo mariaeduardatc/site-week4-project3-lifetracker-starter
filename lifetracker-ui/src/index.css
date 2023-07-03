@@ -3,7 +3,7 @@
     --pure-white: #fff;
     --grey-bg: #f7f7f7;
     --accent-green: #1dba88;
-    --green-clear: #24b98a12;
+    --green-clear: #24b98a16;
     --bright-red: #fe3210;
     --muted: #969696;
     --font-dark: #212121;
@@ -17,5 +17,6 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
+    color: var(--dark-blue);
     font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
