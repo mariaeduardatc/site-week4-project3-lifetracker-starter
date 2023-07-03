@@ -1,0 +1,40 @@
+.header{
+    display: flex;
+    justify-content: center;
+    gap: 20rem;
+    margin-top: 3rem;
+}
+
+.buttons{
+    display: flex;
+    gap: 1rem;
+}
+
+.activity-info{
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+    gap: 10rem;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.activity{
+    padding: 50px 100px;
+    border-radius: 20px;
+    background-color: var(--accent-green);
+}
+
+.activity h1, .activity h3{
+    color: white;
+}
+
+#separate-stats{
+    display: flex;
+    margin-top: 3rem;
+    gap: 1rem;
+}
