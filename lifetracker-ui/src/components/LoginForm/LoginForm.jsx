@@ -43,6 +43,7 @@ function LoginForm({setAppState}) {
  
   return (
     <div className="login-form">
+      <h2>Login</h2>
         <input
             name="email"
             className="form-input"
