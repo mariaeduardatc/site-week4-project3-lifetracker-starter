@@ -109,7 +109,7 @@
 }
 
 #author{
-    background-color: #2c4047b0;
+    background-color: var(--grey-bg);
     margin: 5rem 25rem;
     border-radius: 30px;
 }
@@ -130,9 +130,6 @@
     font-weight: 300;
 }
 
-#author h3, #author p{
-    color: white;
-}
 
 footer{
     background-color: var(--grey-bg);
