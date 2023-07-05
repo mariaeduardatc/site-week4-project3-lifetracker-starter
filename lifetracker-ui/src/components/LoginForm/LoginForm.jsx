@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom'
 
 import "./LoginForm.css";
 
-function LoginForm({setAppState}) {
+function LoginForm({setAppState, setIsLogged}) {
   const navigate = useNavigate()
   const [errors, setErrors] = useState({})
   const [login, setLogin] = useState({
@@ -27,6 +27,7 @@ function LoginForm({setAppState}) {
       if (response?.data) {
         setAppState(response.data)
         setLogin(false)
+        setIsLogged(true)
         navigate("/portal")
       } else {
         setErrors((e) => ({ ...e, form: "Invalid username/password combination" }))

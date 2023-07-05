@@ -16,7 +16,6 @@ function App() {
   const [clickedRegister, setClickedRegister] = useState(false);
 
   const [appState, setAppState] = useState({})
-
   return (
     <div className="app">
       <BrowserRouter>
@@ -24,28 +23,17 @@ function App() {
           setClickedRegister={setClickedRegister}
           setClickedLogin={setClickedLogin}
           user= {appState.user}
+          isLogged = {isLogged}
+          setAppState = {setAppState}
         />
-        {/* {isLogged ? console.log("logged") : <LandingPage />}
-        {clickedLogin ? (
-          <LoginPage isLogged={isLogged} />
-        ) : (
-          <></>
-        )}
-        {clickedRegister ? (
-          <RegistrationPage isLogged={isLogged} setIsLogged={setIsLogged} />
-        ) : (
-          <></>
-        )} */}
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/auth/login" element={<LoginPage setAppState={setAppState}/>} />
-          <Route path="/auth/register" element={<RegistrationPage setAppState={setAppState}/>} />
+          <Route path="/auth/login" element={<LoginPage setAppState={setAppState} setIsLogged ={setIsLogged}/>} />
+          <Route path="/auth/register" element={<RegistrationPage setAppState={setAppState} setIsLogged={setIsLogged}/>} />
           <Route
             path="/portal"
             element={<ActivityPage setAppState={setAppState} appState={appState} user={appState?.user} />}
           />
-          {/* <Route path='/activity' element={<ActivityPage />}/> */}
-          {/* <Route path='/nutrition/*' element={<NutritionPage />}/> */}
         </Routes>
       </BrowserRouter>
     </div>

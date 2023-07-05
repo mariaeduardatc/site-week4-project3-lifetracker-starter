@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./RegistrationForm.css";
 
-function RegistrationForm({ setAppState }) {
+function RegistrationForm({ setAppState, setIsLogged }) {
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -48,6 +48,7 @@ function RegistrationForm({ setAppState }) {
       });
       if (response?.data?.user) {
         setAppState(response.data);
+        setIsLogged(true);
         setIsLoading(false);
         navigate("/portal");
       } else {

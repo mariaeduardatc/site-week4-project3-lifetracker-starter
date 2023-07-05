@@ -8,7 +8,7 @@ function RegistrationPage({isLogged, setIsLogged, setAppState}) {
 
   return (
     <div className="login-page">
-      {isLogged ? <ActivityPage /> : <RegistrationForm setAppState={setAppState}/>}
+      {isLogged ? <ActivityPage /> : <RegistrationForm setAppState={setAppState} setIsLogged={setIsLogged}/>}
     </div>
   );
 }

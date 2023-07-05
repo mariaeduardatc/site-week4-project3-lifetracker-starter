@@ -1,9 +1,8 @@
 import "./ActivityPage.css";
 import { Link, useNavigate } from "react-router-dom";
-import moment from "moment";
 
-function ActivityPage({ user, setAppState }) {
-  const navigate = useNavigate();
+
+function ActivityPage({ user }) {
   const isAuthenticated = Boolean(user?.email);
   const exerciseHours = 0;
   const caloriesTotal = 0;
@@ -12,10 +11,6 @@ function ActivityPage({ user, setAppState }) {
   const maxExercise = 0;
   const maxSleep = 0;
 
-  const handleOnLogout = () => {
-    setAppState({});
-    navigate("/");
-  };
 
   const body = isAuthenticated ? (
     <>
