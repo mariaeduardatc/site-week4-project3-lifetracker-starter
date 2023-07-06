@@ -28,7 +28,7 @@ function LoginForm({setAppState, setIsLogged}) {
         setAppState(response.data)
         setLogin(false)
         setIsLogged(true)
-        navigate("/activity")
+        navigate("/auth/activity")
       } else {
         setErrors((e) => ({ ...e, form: "Invalid username/password combination" }))
         setIsLoading(false)

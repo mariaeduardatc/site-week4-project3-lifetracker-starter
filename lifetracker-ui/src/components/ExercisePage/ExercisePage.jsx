@@ -3,11 +3,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./ExercisePage.css";
 
-function ExercisePage({ isLogged }) {
+function ExercisePage({ isLogged, exercises, setExercises }) {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
-  const [exercises, setExercises] = useState([]);
   const [exerciseInput, setExerciseInput] = useState({
     name: "",
     category: "",
@@ -60,12 +59,12 @@ function ExercisePage({ isLogged }) {
       const response = await axios.post( "http://localhost:3001/auth/exercise/create", exerciseInput);
       if (response?.data?.exercise) {
         const individualExercise = response.data.exercise;
-        setExercises({
+        setExercises([
           ...exercises,
           individualExercise,
-        });
+        ]);
         setIsLoading(false);
-        navigate("/exercise");
+        navigate("/auth/exercise");
       } else {
         setErrors((e) => ({
           ...e,

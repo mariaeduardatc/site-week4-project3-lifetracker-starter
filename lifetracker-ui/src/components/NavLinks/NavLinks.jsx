@@ -17,10 +17,10 @@ function NavLinks({ isLogged, user, setAppState }) {
 
   const navbarBody = (isLogged && isAuthenticated) ? (
     <>
-      <Link to="/activity">Activity</Link>
-      <Link to="/exercise">Exercise</Link>
-      <Link to="/nutrition">Nutrition</Link>
-      <Link to="/sleep">Sleep</Link>
+      <Link to="/auth/activity">Activity</Link>
+      <Link to="/auth/exercise">Exercise</Link>
+      <Link to="/auth/nutrition">Nutrition</Link>
+      <Link to="/auth/sleep">Sleep</Link>
       <button onClick={handleOnLogout} className="btn" id="register">
           Logout
         </button>
