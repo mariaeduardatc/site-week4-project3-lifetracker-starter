@@ -1,9 +1,40 @@
 import { Link } from "react-router-dom";
-
+import axios from "axios";
+import { useEffect, useState } from "react";
 import './ExerciseDashboard.css'
 
-function ExerciseDashboard({ exercises }) {
-  console.log(exercises, 'oglog');
+function ExerciseDashboard({ user }) {
+  const [errors, setErrors] = useState({});
+  const [exercises, setExercises] = useState([]);
+
+  const getExercise = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:3001/auth/getexercise/${user.id}`
+      );
+
+      if (response?.data?.exerciseById) {
+        const individualExercise = response.data.exerciseById;
+        console.log("resp", individualExercise);
+        setExercises(individualExercise);
+      } else {
+        setErrors((e) => ({
+          ...e,
+          exerciseInput: "Something went wrong with creating a new exercise",
+        }));
+      }
+    } catch (err) {
+      console.log(err);
+      const message = err?.response?.data?.error?.message;
+      setErrors((e) => ({
+        ...e,
+        exerciseInput: message ? String(message) : String(err),
+      }));
+    }
+  };
+  useEffect(() => {
+    getExercise();
+  }, [user.id]);
   const tags =
   exercises?.map((exercise) => (
     <div className="dash-tags">

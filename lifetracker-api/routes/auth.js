@@ -9,6 +9,7 @@ const router = express.Router();
 router.post("/register", async (req, res) => {
   try {
     const user = await User.register(req.body);
+    console.log(user.id)
     res.status(201).json({ user });
   } catch (err) {
     throw err;
@@ -32,5 +33,18 @@ router.post("/exercise/create", async function (req, res) {
     throw err;
   }
 });
+
+router.get("/getexercise/:userId", async function (req, res) {
+  try {
+    const userId = req.params.userId
+    const exerciseById = await Exercise.getExerciseById(userId);
+    return res.status(200).json({ exerciseById });
+  } catch (err) {
+    throw err;
+  }
+});
+
+
+
 
 module.exports = router;

@@ -14,8 +14,6 @@ import ExerciseDashboard from "../ExerciseDashboard/ExerciseDashboard";
 function App() {
   const [isLogged, setIsLogged] = useState(false);
   const [appState, setAppState] = useState({});
-  const [exercises, setExercises] = useState([]);
-  console.log('app', exercises)
 
   return (
     <div className="app">
@@ -33,8 +31,8 @@ function App() {
             path="/auth/activity"
             element={<ActivityPage setAppState={setAppState} appState={appState} user={appState?.user} />}
           />
-          <Route path="/auth/exercise/create" element={<ExercisePage isLogged={isLogged} exercises={exercises} setExercises={setExercises}/>}/>
-          <Route path="/auth/exercise" element={<ExerciseDashboard exercises={exercises}/>}/>
+          <Route path="/auth/exercise/create" element={<ExercisePage isLogged={isLogged} user={appState?.user}/>}/>
+          <Route path="/auth/exercise" element={<ExerciseDashboard user={appState?.user} />}/>
         </Routes>
       </BrowserRouter>
     </div>

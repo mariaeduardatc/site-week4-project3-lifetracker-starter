@@ -1,9 +1,10 @@
-import { useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ExercisePage.css";
 
-function ExercisePage({ isLogged, exercises, setExercises }) {
+function ExercisePage({ isLogged, user }) {
+  console.log('user id change', user.id)
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
@@ -12,6 +13,7 @@ function ExercisePage({ isLogged, exercises, setExercises }) {
     category: "",
     duration: 0,
     intensity: 0,
+    userId: user.id,
   });
 
   function handleExerciseInput(e) {
@@ -38,7 +40,6 @@ function ExercisePage({ isLogged, exercises, setExercises }) {
   };
 
   const registerExercise = async () => {
-    console.log(exerciseInput);
     setIsLoading(true);
     setErrors((e) => ({ ...e, exerciseInput: null }));
 
@@ -60,9 +61,8 @@ function ExercisePage({ isLogged, exercises, setExercises }) {
         "http://localhost:3001/auth/exercise/create",
         exerciseInput
       );
+
       if (response?.data?.exercise) {
-        const individualExercise = response.data.exercise;
-        setExercises([...exercises, individualExercise]);
         setIsLoading(false);
         navigate("/auth/exercise");
       } else {
@@ -82,6 +82,7 @@ function ExercisePage({ isLogged, exercises, setExercises }) {
       setIsLoading(false);
     }
   };
+
 
   const exerciseFormBody = isLogged ? (
     <div className="activity-page" id="activity-exercise">

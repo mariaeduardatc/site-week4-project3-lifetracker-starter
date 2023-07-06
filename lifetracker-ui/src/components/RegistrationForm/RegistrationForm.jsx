@@ -49,7 +49,7 @@ function RegistrationForm({ setAppState, setIsLogged }) {
         setAppState(response.data);
         setIsLogged(true);
         setIsLoading(false);
-        navigate("/activity");
+        navigate("/auth/activity");
       } else {
         setErrors((e) => ({
           ...e,
