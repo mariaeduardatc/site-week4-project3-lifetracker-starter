@@ -30,7 +30,6 @@ function RegistrationForm({ setAppState, setIsLogged }) {
     setErrors((e) => ({ ...e, register: null }));
 
     if (register.passwordConfirm !== register.password) {
-      console.log("test");
       setErrors((e) => ({ ...e, passwordConfirm: "Passwords do not match." }));
       setIsLoading(false);
       return;
@@ -50,11 +49,11 @@ function RegistrationForm({ setAppState, setIsLogged }) {
         setAppState(response.data);
         setIsLogged(true);
         setIsLoading(false);
-        navigate("/portal");
+        navigate("/activity");
       } else {
         setErrors((e) => ({
           ...e,
-          form: "Something went wrong with registration",
+          register: "Something went wrong with registration",
         }));
         setIsLoading(false);
       }
@@ -63,7 +62,7 @@ function RegistrationForm({ setAppState, setIsLogged }) {
       const message = err?.response?.data?.error?.message;
       setErrors((e) => ({
         ...e,
-        form: message ? String(message) : String(err),
+        register: message ? String(message) : String(err),
       }));
       setIsLoading(false);
     }

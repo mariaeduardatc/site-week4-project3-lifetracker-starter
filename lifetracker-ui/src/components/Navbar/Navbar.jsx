@@ -5,7 +5,7 @@ import "./Navbar.css";
 import logo from "../../assets/codepath.svg";
 import NavLinks from "../NavLinks/NavLinks";
 
-function Navbar({ setClickedLogin, setClickedRegister, isLogged, user, setAppState }) {
+function Navbar({ isLogged, user, setAppState }) {
   return (
     <nav className="navbar">
       <div className="logo">
@@ -16,12 +16,6 @@ function Navbar({ setClickedLogin, setClickedRegister, isLogged, user, setAppSta
 
       <div className="navlinks">
         <NavLinks
-          setClickedRegister={() => {
-            setClickedRegister(false);
-          }}
-          setClickedLogin={() => {
-            setClickedRegister(false);
-          }}
           isLogged = {isLogged}
           user = {user}
           setAppState={setAppState}

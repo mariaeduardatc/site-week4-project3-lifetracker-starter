@@ -1,5 +1,6 @@
 import "./ActivityPage.css";
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 
 function ActivityPage({ user }) {
@@ -11,13 +12,13 @@ function ActivityPage({ user }) {
   const maxExercise = 0;
   const maxSleep = 0;
 
-
   const body = isAuthenticated ? (
     <>
       <div className="header">
         <h1>Welcome back {user.firstName}!</h1>
         <div className="buttons">
-          <button className="btn">Add Exercise</button>
+          
+          <Link to="/auth/exercise/create"><button className="btn">Add Exercise</button></Link>
           <button className="btn">Log Sleep</button>
           <button className="btn">Record Nutrition</button>
         </div>

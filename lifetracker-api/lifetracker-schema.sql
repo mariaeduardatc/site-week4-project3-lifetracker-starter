@@ -9,6 +9,17 @@ CREATE TABLE users
 );
 
 
+CREATE TABLE exercise
+(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    category VARCHAR(255) NOT NULL,
+    duration VARCHAR(255) NOT NULL,
+    intensity VARCHAR(255) NOT NULL,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+);
+
+
 -- CREATE TABLE nutrition
 -- (
 --     id SERIAL PRIMARY KEY,

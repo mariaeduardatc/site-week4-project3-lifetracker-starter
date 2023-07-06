@@ -4,18 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import moment from "moment";
 
 
-function NavLinks({ setClickedLogin, setClickedRegister, isLogged, user, setAppState }) {
+function NavLinks({ isLogged, user, setAppState }) {
   const navigate = useNavigate();
     
   const isAuthenticated = Boolean(user?.email);
-  function handleLoginButton() {
-    setClickedLogin(true);
-  }
-
-  function handleRegisterButton() {
-    setClickedRegister(true);
-  }
-
+  
 
   const handleOnLogout = () => {
     setAppState({});
@@ -35,12 +28,12 @@ function NavLinks({ setClickedLogin, setClickedRegister, isLogged, user, setAppS
   ) : (
     <>
       <Link to="/auth/register">
-        <button onClick={handleRegisterButton} className="btn" id="register">
+        <button className="btn" id="register">
           Register
         </button>
       </Link>
       <Link to="/auth/login">
-        <button onClick={handleLoginButton} className="btn">
+        <button className="btn">
           Sign In
         </button>
       </Link>
