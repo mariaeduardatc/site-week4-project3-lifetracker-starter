@@ -1,6 +1,63 @@
-.ExercisePage .button {
+.activity-page{
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
 }
-.ExercisePage .button button {
-  flex: 1;
+
+.activity-title{
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#activity-exercise .activity-title{
+  background-color: var(--accent-green);
+}
+
+.activity-main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.activity-form{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.activity-form input{
+  padding: 5px 10px;
+}
+
+.activity-form #name{
+  padding: 5px 35px;
+}
+
+.activity-form select{
+  padding: 5px 45px;
+}
+.input-with-arrows{
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input-with-arrows button{
+  padding: 1px 5px;
+  height: 30px;
+  border: none;
+  gap: 0.5rem;
+}
+
+.activity-form .btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

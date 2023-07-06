@@ -56,13 +56,13 @@ function ExercisePage({ isLogged, exercises, setExercises }) {
     }
 
     try {
-      const response = await axios.post( "http://localhost:3001/auth/exercise/create", exerciseInput);
+      const response = await axios.post(
+        "http://localhost:3001/auth/exercise/create",
+        exerciseInput
+      );
       if (response?.data?.exercise) {
         const individualExercise = response.data.exercise;
-        setExercises([
-          ...exercises,
-          individualExercise,
-        ]);
+        setExercises([...exercises, individualExercise]);
         setIsLoading(false);
         navigate("/auth/exercise");
       } else {
@@ -84,13 +84,13 @@ function ExercisePage({ isLogged, exercises, setExercises }) {
   };
 
   const exerciseFormBody = isLogged ? (
-    <div className="activity-page">
+    <div className="activity-page" id="activity-exercise">
       <div className="activity-title">
         <h1>Exercise</h1>
       </div>
       <div className="activity-main">
         <div className="activity-sub-title">
-          <h3>Record Exercise</h3>
+          <h4>Record Exercise</h4>
         </div>
         <div className="activity-form">
           <input
@@ -98,6 +98,7 @@ function ExercisePage({ isLogged, exercises, setExercises }) {
             className="form-input"
             type="text"
             placeholder="Name"
+            id="name"
             value={exerciseInput.name}
             onChange={handleExerciseInput}
           ></input>
@@ -120,10 +121,8 @@ function ExercisePage({ isLogged, exercises, setExercises }) {
               value={exerciseInput.duration}
               onChange={handleExerciseInput}
             ></input>
-            <div className="btn-number">
-              <button onClick={() => handleIncrease("duration")}>+</button>
-              <button onClick={() => handleDecrease("duration")}>-</button>
-            </div>
+            <button onClick={() => handleIncrease("duration")}>+</button>
+            <button onClick={() => handleDecrease("duration")}>-</button>
           </div>
           <div className="input-with-arrows">
             <input
