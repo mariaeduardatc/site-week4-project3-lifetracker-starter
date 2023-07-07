@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "./LandingPage.css";
 
 import bed from "../../assets/icon_bed.svg";
@@ -17,7 +19,7 @@ function LandingPage() {
         <div className="description">
           <div className="title">✨LifeTracker✨</div>
           <p>Helping you take back control of your world.</p>
-          <button className="btn">Join</button>
+          <Link to="/auth/register"><button className="btn">Join</button></Link>
         </div>
         <div className="images">
           <img src={food} alt="bowl of yogurt" id="food1" />
@@ -34,7 +36,7 @@ function LandingPage() {
             Set yourself for success and board this experince. <br /> Create
             your account today and begin having control over your goals!
           </p>
-          <button className="btn">Register</button>
+          <Link to="/auth/register"><button className="btn">Register</button></Link>
         </div>
         <div className="images" id="infoImages">
           <img src={logs} alt="" />

@@ -24,3 +24,7 @@
 .registration-form button{
     margin-top: 1rem;
 }
+
+h5 #login-reg{
+    text-decoration: underline;
+}

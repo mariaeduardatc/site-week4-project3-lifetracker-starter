@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "./RegistrationForm.css";
 
@@ -127,6 +127,10 @@ function RegistrationForm({ setAppState, setIsLogged }) {
         <button className="btn" onClick={singupUser} disabled={isLoading}>
           {isLoading ? "Loading..." : "Create Account"}
         </button>
+        <h5>
+          Already an user?
+          <Link to="/auth/register" id="login-reg"> Login!</Link>
+        </h5>
       </div>
     </>
   );
