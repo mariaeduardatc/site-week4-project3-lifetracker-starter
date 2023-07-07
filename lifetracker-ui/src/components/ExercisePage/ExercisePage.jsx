@@ -12,7 +12,7 @@ function ExercisePage({ isLogged, user }) {
     category: "",
     duration: 0,
     intensity: 0,
-    userId: user,
+    userId: user.id,
   });
 
   function handleExerciseInput(e) {

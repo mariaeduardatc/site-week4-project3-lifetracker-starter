@@ -11,7 +11,7 @@ export default function SleepForm({ isLogged, user }) {
     dating: null,
     bedTime: null,
     wakeTime: null,
-    userId: user,
+    userId: user.id,
   });
 
   function handleSleepInput(e) {

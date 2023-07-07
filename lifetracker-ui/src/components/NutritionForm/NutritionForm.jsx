@@ -12,7 +12,7 @@ export default function NutritionForm({ isLogged, user }) {
     category: "",
     calories: 0,
     imageUrl: null,
-    userId: user,
+    userId: user.id,
   });
 
   const handleIncrease = (field) => {
@@ -60,7 +60,7 @@ export default function NutritionForm({ isLogged, user }) {
         nutritionInput
       );
 
-      if (response?.data?.exercise) {
+      if (response?.data?.nutrition) {
         setIsLoading(false);
         navigate("/auth/nutrition");
       } else {

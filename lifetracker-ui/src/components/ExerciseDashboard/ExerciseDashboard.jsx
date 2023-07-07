@@ -10,7 +10,7 @@ function ExerciseDashboard({ user }) {
   const getExercise = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3001/auth/getexercise/${user}`
+        `http://localhost:3001/auth/getexercise/${user.id}`
       );
 
       if (response?.data?.exerciseById) {
