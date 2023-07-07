@@ -5,7 +5,6 @@ import ActivityPage from "../ActivityPage/ActivityPage";
 import LoginForm from "../LoginForm/LoginForm";
 
 function LoginPage({isLogged, setAppState, setIsLogged, appState}) {
-  console.log('login page', appState?.user)
 
   return (
     <div className="login-page">

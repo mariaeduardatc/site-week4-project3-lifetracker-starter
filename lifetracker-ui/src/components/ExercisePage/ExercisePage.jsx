@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import "./ExercisePage.css";
 
 function ExercisePage({ isLogged, user }) {
-  console.log('user id change', user.id)
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});

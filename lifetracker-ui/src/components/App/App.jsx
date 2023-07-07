@@ -19,14 +19,11 @@ import NutritionDashboard from "../NutritionDashboard/NutritionDashboard"
 function App() {
   const [isLogged, setIsLogged] = useState(false);
   const [appState, setAppState] = useState({});
-  console.log("App appState",appState)
   useEffect(() => {
     const checkLoggedIn = () => {
       const token = localStorage.getItem("token");
-      console.log("App useEffect", token)
       if (token) {
         const decodedToken = jwtDecode(token);
-        console.log("decoded token", decodedToken)
         if (decodedToken.exp * 1000 > Date.now()) {
           setIsLogged(true);
           setAppState({ user: decodedToken.user_id });
@@ -48,7 +45,7 @@ function App() {
     <div className="app">
       <BrowserRouter>
         <Navbar
-          user={appState?.user}
+          setIsLogged={setIsLogged}
           isLogged={isLogged}
           setAppState={setAppState}
         />

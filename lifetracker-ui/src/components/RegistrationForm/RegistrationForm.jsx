@@ -25,7 +25,6 @@ function RegistrationForm({ setAppState, setIsLogged }) {
   }
 
   const singupUser = async () => {
-    console.log(register);
     setIsLoading(true);
     setErrors((e) => ({ ...e, register: null }));
 

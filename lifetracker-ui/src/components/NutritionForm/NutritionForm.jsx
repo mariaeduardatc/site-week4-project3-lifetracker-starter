@@ -55,7 +55,6 @@ export default function NutritionForm({ isLogged, user }) {
     }
 
     try {
-      console.log("nut form input", nutritionInput)
       const response = await axios.post(
         "http://localhost:3001/auth/nutrition/create",
         nutritionInput

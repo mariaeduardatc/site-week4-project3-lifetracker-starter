@@ -15,7 +15,6 @@ export default function SleepDashboard({user}){
     
           if (response?.data?.sleepById) {
             const individualSleepTag = response.data.sleepById;
-            console.log(individualSleepTag)
             setSleeplog(individualSleepTag);
           } 
           
@@ -42,11 +41,11 @@ export default function SleepDashboard({user}){
         <div className="tag-description">
           <div className="tag-duration">
             <h5>Bed Time</h5>
-            <h4>{sleepTag.bed_time}</h4>
+            <h4>{sleepTag.bed_time.substring(0,5)}</h4>
           </div>
           <div className="tag-intensity">
             <h5>Wake Time</h5>
-            <h4>{sleepTag.wakeTime}</h4>
+            <h4>{sleepTag.wake_time.substring(0,5)}</h4>
           </div>
         </div>
       </div>

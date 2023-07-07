@@ -2,16 +2,12 @@ import "./NavLinks.css";
 import { Link, useNavigate } from "react-router-dom";
 
 
-function NavLinks({ isLogged, user, setAppState }) {
+function NavLinks({ isLogged, setIsLogged, setAppState }) {
   const navigate = useNavigate();
-    
-  const isAuthenticated = Boolean(user);
-  
-  console.log("NavLinks isLogged", isLogged)
 
   const handleOnLogout = () => {
     localStorage.removeItem("token");
-    isLogged(false)
+    setIsLogged(false)
     setAppState({});
     navigate("/");
   };

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 
 function ActivityPage({ user, isLogged }) {
-  const isAuthenticated = Boolean(user);
   const exerciseHours = 0;
   const caloriesTotal = 0;
   const sleepTotal = 0;
@@ -11,9 +10,7 @@ function ActivityPage({ user, isLogged }) {
   const maxExercise = 0;
   const maxSleep = 0;
 
-  console.log('islogg',isLogged, isAuthenticated, user)
-
-  const body = isAuthenticated ? (
+  const body = isLogged ? (
     <>
       <div className="header">
         <h1>Welcome back {user.firstName}!</h1>

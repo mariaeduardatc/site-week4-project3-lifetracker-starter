@@ -15,7 +15,6 @@ function ExerciseDashboard({ user }) {
 
       if (response?.data?.exerciseById) {
         const individualExercise = response.data.exerciseById;
-        console.log("resp", individualExercise);
         setExercises(individualExercise);
       } else {
         setErrors((e) => ({
