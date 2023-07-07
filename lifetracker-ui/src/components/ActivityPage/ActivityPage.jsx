@@ -2,7 +2,7 @@ import "./ActivityPage.css";
 import { Link, useNavigate } from "react-router-dom";
 
 
-function ActivityPage({ user }) {
+function ActivityPage({ user, isLogged }) {
   const isAuthenticated = Boolean(user?.email);
   const exerciseHours = 0;
   const caloriesTotal = 0;
@@ -11,6 +11,8 @@ function ActivityPage({ user }) {
   const maxExercise = 0;
   const maxSleep = 0;
 
+  console.log('islogg',isLogged, isAuthenticated, user)
+
   const body = isAuthenticated ? (
     <>
       <div className="header">
@@ -18,7 +20,7 @@ function ActivityPage({ user }) {
         <div className="buttons">
           
           <Link to="/auth/exercise/create"><button className="btn">Add Exercise</button></Link>
-          <button className="btn">Log Sleep</button>
+          <Link to="/auth/sleep/create"><button className="btn">Log Sleep</button></Link>
           <button className="btn">Record Nutrition</button>
         </div>
       </div>

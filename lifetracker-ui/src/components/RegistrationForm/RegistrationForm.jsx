@@ -46,6 +46,8 @@ function RegistrationForm({ setAppState, setIsLogged }) {
         password: register.password,
       });
       if (response?.data?.user) {
+        const { token } = response.data;
+        localStorage.setItem("token", token);
         setAppState(response.data);
         setIsLogged(true);
         setIsLoading(false);

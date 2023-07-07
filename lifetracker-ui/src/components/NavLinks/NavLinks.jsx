@@ -1,7 +1,5 @@
-import { useState } from "react";
 import "./NavLinks.css";
 import { Link, useNavigate } from "react-router-dom";
-import moment from "moment";
 
 
 function NavLinks({ isLogged, user, setAppState }) {
@@ -11,6 +9,8 @@ function NavLinks({ isLogged, user, setAppState }) {
   
 
   const handleOnLogout = () => {
+    localStorage.removeItem("token");
+    isLogged(false)
     setAppState({});
     navigate("/");
   };

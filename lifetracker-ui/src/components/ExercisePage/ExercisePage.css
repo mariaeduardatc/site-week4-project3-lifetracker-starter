@@ -35,14 +35,17 @@
 
 .activity-form input{
   padding: 5px 10px;
+  width: 250px;
+  height: 30px;
 }
 
 .activity-form #name{
-  padding: 5px 35px;
+  width: 300px;
 }
 
 .activity-form select{
-  padding: 5px 45px;
+  width: 300px;
+  height: 30px;
 }
 .input-with-arrows{
   display: flex;

@@ -19,6 +19,14 @@ CREATE TABLE exercise
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
 
+CREATE TABLE sleep
+(
+    id SERIAL PRIMARY KEY,
+    dating DATE NOT NULL,
+    bed_time TIME NOT NULL,
+    wake_time TIME NOT NULL,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+);
 
 -- CREATE TABLE nutrition
 -- (

@@ -1,0 +1,8 @@
+#activity-sleep .activity-title{
+    background-color: var(--light-blue);
+}
+
+#activity-sleep input{
+     width: 250px;
+     height: 30px;
+}
