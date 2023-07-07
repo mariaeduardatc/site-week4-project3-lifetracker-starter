@@ -63,7 +63,6 @@ class Exercise {
   }
 
   static async getExerciseById(userId) {
-    console.log(userId,'models')
     const result = await db.query(
       `SELECT id,
               name, 
@@ -77,6 +76,18 @@ class Exercise {
     const exercises = result.rows;
 
     return exercises;
+  }
+
+  static async totalExercise(userId) {
+    const result = await db.query(
+      `SELECT SUM(duration) AS total_duration
+       FROM exercise
+       WHERE user_id = $1`,
+      [userId]
+    );
+  
+    const { total_duration } = result.rows[0];
+    return total_duration;
   }
 }
 

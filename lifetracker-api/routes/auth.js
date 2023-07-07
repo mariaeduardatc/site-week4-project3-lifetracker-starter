@@ -54,6 +54,7 @@ router.get("/getexercise/:userId", async function (req, res) {
   try {
     const userId = req.params.userId;
     const exerciseById = await Exercise.getExerciseById(userId);
+    console.log(exerciseById)
     return res.status(200).json({ exerciseById });
   } catch (err) {
     throw err;
@@ -98,5 +99,16 @@ router.get("/getnutrition/:userId", async function (req, res) {
     throw err;
   }
 });
+
+// calculating stats for main page
+router.get('/activity/:userId', async function (req, res) {
+  try {
+    const userId = req.params.userId;
+    const totalExercise = await Exercise.totalExercise(userId);
+    return res.status(200).json({ totalExercise });
+  } catch (err) {
+    throw err;
+  }
+})
 
 module.exports = router;

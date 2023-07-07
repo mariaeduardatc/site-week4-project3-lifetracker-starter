@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "axios";
 import jwtDecode from "jwt-decode";
 
 import "./App.css";
@@ -19,6 +20,32 @@ import NutritionDashboard from "../NutritionDashboard/NutritionDashboard"
 function App() {
   const [isLogged, setIsLogged] = useState(false);
   const [appState, setAppState] = useState({});
+
+  const [exerciseMinutes, setExerciseMinutes] = useState(0);
+  const [caloriesTotal, setCaloriesTotal] = useState(0);
+  const [sleepTotal, setSleepTotal] = useState(0);
+  const [maxCalories, setMaxCalories] = useState(0);
+  const [maxExercise, setMaxExercise] = useState(0);
+  const [maxSleep, setMaxSleep] = useState(0);
+
+  const statsActivity = async () => {
+    try {
+      const response = await axios.get(`http://localhost:3001/auth/activity/${appState.user}`);
+      setExerciseMinutes(response.data.totalExercise);
+      setCaloriesTotal();
+      setSleepTotal();
+      setMaxCalories();
+      setMaxExercise();
+      setMaxSleep();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    statsActivity()
+  }, [appState.user])
+
   useEffect(() => {
     const checkLoggedIn = () => {
       const token = localStorage.getItem("token");
@@ -29,7 +56,7 @@ function App() {
           setAppState({ user: decodedToken.user_id });
         } else {
           setIsLogged(false);
-          setAppState({});
+          // setAppState({});
           localStorage.removeItem("token");
         }
       } else {
@@ -61,11 +88,11 @@ function App() {
           />
           <Route
             path="/auth/activity"
-            element={<ActivityPage setAppState={setAppState} appState={appState} user={appState?.user} isLogged={isLogged} />}
+            element={<ActivityPage maxSleep={maxSleep} maxExercise={maxExercise} maxCalories={maxCalories} sleepTotal={sleepTotal} caloriesTotal={caloriesTotal} exerciseMinutes={exerciseMinutes} setAppState={setAppState} appState={appState} user={appState?.user} isLogged={isLogged} />}
           />
           <Route
             path="/auth/exercise/create"
-            element={<ExercisePage isLogged={isLogged} user={appState?.user} />}
+            element={<ExercisePage statsActivity={statsActivity} isLogged={isLogged} user={appState?.user} />}
           />
           <Route
             path="/auth/exercise"

@@ -3,20 +3,21 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ExercisePage.css";
 
-function ExercisePage({ isLogged, user }) {
+function ExercisePage({ isLogged, user, statsActivity }) {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [exerciseInput, setExerciseInput] = useState({
     name: "",
     category: "",
-    duration: 0,
-    intensity: 0,
-    userId: user.id,
+    duration: null,
+    intensity: null,
+    userId: user,
   });
 
   function handleExerciseInput(e) {
     const { name, value } = e.target;
+    statsActivity()
     setExerciseInput((prevUser) => ({
       ...prevUser,
       [name]: value,
@@ -118,7 +119,8 @@ function ExercisePage({ isLogged, user }) {
             <input
               type="number"
               name="duration"
-              value={exerciseInput.duration}
+              placeholder="Duration"
+              value={parseInt(exerciseInput.duration)}
               onChange={handleExerciseInput}
             ></input>
             <button onClick={() => handleIncrease("duration")}>+</button>
@@ -128,7 +130,8 @@ function ExercisePage({ isLogged, user }) {
             <input
               type="number"
               name="intensity"
-              value={exerciseInput.intensity}
+              placeholder="Intensity"
+              value={parseInt(exerciseInput.intensity)}
             ></input>
             <button onClick={() => handleIncrease("intensity")}>+</button>
             <button onClick={() => handleDecrease("intensity")}>-</button>
