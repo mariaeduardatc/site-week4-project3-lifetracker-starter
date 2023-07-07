@@ -66,7 +66,7 @@ function LoginForm({ setAppState, setIsLogged }) {
       <input
         name="password"
         className="form-input"
-        type="text"
+        type="password"
         placeholder="Password"
         value={setLogin.password}
         onChange={handleLogin}

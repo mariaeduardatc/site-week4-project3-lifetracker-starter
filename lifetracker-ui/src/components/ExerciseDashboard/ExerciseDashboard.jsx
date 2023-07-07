@@ -10,7 +10,7 @@ function ExerciseDashboard({ user }) {
   const getExercise = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3001/auth/getexercise/${user.id}`
+        `http://localhost:3001/auth/getexercise/${user}`
       );
 
       if (response?.data?.exerciseById) {
@@ -34,7 +34,9 @@ function ExerciseDashboard({ user }) {
   };
   useEffect(() => {
     getExercise();
-  }, [user.id]);
+  }, [user]);
+
+  
   const tags =
   exercises?.map((exercise) => (
     <div className="dash-tags">

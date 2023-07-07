@@ -4,6 +4,7 @@ const express = require("express");
 const User = require("../models/user");
 const Exercise = require("../models/exercise");
 const Sleep = require("../models/sleep");
+const Nutrition = require("../models/nutrition");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
 
@@ -63,6 +64,36 @@ router.post("/sleep/create", async function (req, res) {
   try {
     const sleep = await Sleep.addSleep(req.body);
     return res.status(200).json({ sleep });
+  } catch (err) {
+    throw err;
+  }
+});
+
+router.get("/getsleep/:userId", async function (req, res) {
+  try {
+    const userId = req.params.userId;
+    const sleepById = await Sleep.getSleepById(userId);
+    return res.status(200).json({ sleepById });
+  } catch (err) {
+    throw err;
+  }
+});
+
+router.post("/nutrition/create", async function (req, res) {
+  try {
+    console.log(req.body, 'testing')
+    const nutrition = await Nutrition.addNutrition(req.body);
+    return res.status(200).json({ nutrition });
+  } catch (err) {
+    throw err;
+  }
+});
+
+router.get("/getnutrition/:userId", async function (req, res) {
+  try {
+    const userId = req.params.userId;
+    const nutritionById = await Nutrition.getNutritionById(userId);
+    return res.status(200).json({ nutritionById });
   } catch (err) {
     throw err;
   }

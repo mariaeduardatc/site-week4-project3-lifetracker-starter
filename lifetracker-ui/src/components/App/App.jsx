@@ -13,19 +13,23 @@ import ExercisePage from "../ExercisePage/ExercisePage";
 import ExerciseDashboard from "../ExerciseDashboard/ExerciseDashboard";
 import SleepForm from "../SleepForm/SleepForm";
 import SleepDashboard from "../SleepDashboard/SleepDashboard";
+import NutritionForm from "../NutritionForm/NutritionForm";
+import NutritionDashboard from "../NutritionDashboard/NutritionDashboard"
 
 function App() {
   const [isLogged, setIsLogged] = useState(false);
   const [appState, setAppState] = useState({});
-  
+  console.log("App appState",appState)
   useEffect(() => {
     const checkLoggedIn = () => {
       const token = localStorage.getItem("token");
+      console.log("App useEffect", token)
       if (token) {
         const decodedToken = jwtDecode(token);
+        console.log("decoded token", decodedToken)
         if (decodedToken.exp * 1000 > Date.now()) {
           setIsLogged(true);
-          setAppState({ user: decodedToken.userName });
+          setAppState({ user: decodedToken.user_id });
         } else {
           setIsLogged(false);
           setAppState({});
@@ -44,7 +48,7 @@ function App() {
     <div className="app">
       <BrowserRouter>
         <Navbar
-          user={appState.user}
+          user={appState?.user}
           isLogged={isLogged}
           setAppState={setAppState}
         />
@@ -76,8 +80,17 @@ function App() {
           />
           <Route
             path="/auth/sleep"
-            element={<SleepDashboard />}
+            element={<SleepDashboard user={appState?.user} />}
           />
+          <Route
+            path="/auth/nutrition/create"
+            element={<NutritionForm isLogged={isLogged} user={appState?.user}  />}
+          />
+          <Route
+            path="/auth/sleep"
+            element={<NutritionDashboard user={appState?.user} />}
+          />
+
         </Routes>
       </BrowserRouter>
     </div>

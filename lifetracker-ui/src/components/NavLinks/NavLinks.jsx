@@ -5,8 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 function NavLinks({ isLogged, user, setAppState }) {
   const navigate = useNavigate();
     
-  const isAuthenticated = Boolean(user?.email);
+  const isAuthenticated = Boolean(user);
   
+  console.log("NavLinks isLogged", isLogged)
 
   const handleOnLogout = () => {
     localStorage.removeItem("token");
@@ -15,7 +16,7 @@ function NavLinks({ isLogged, user, setAppState }) {
     navigate("/");
   };
 
-  const navbarBody = (isLogged && isAuthenticated) ? (
+  const navbarBody = (isLogged ) ? (
     <>
       <Link to="/auth/activity">Activity</Link>
       <Link to="/auth/exercise">Exercise</Link>

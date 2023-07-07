@@ -55,7 +55,7 @@ class Sleep {
       `SELECT id,
             dating,
             bed_time,
-            wake_time,       
+            wake_time       
            FROM sleep
            WHERE user_id = $1`,
       [userId]

@@ -1,9 +1,9 @@
 import "./ActivityPage.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 function ActivityPage({ user, isLogged }) {
-  const isAuthenticated = Boolean(user?.email);
+  const isAuthenticated = Boolean(user);
   const exerciseHours = 0;
   const caloriesTotal = 0;
   const sleepTotal = 0;
@@ -21,7 +21,7 @@ function ActivityPage({ user, isLogged }) {
           
           <Link to="/auth/exercise/create"><button className="btn">Add Exercise</button></Link>
           <Link to="/auth/sleep/create"><button className="btn">Log Sleep</button></Link>
-          <button className="btn">Record Nutrition</button>
+          <Link to="/auth/nutrition/create"><button className="btn">Record Nutrition</button></Link>
         </div>
       </div>
       <div className="activity-info">
