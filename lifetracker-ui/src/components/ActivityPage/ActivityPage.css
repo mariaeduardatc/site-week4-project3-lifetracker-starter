@@ -26,7 +26,30 @@
 .activity{
     padding: 50px 100px;
     border-radius: 20px;
+}
+
+#exercise{
     background-color: var(--accent-green);
+}
+
+#exercise h1, #exercise h3{
+    color: var(--dark-blue);
+}
+
+#nutrition{
+    background-color: var(--light-purple);
+}
+
+#nutrition h1, #nutrition h3{
+    color: var(--dark-blue);
+}
+
+#sleep{
+    background-color: var(--light-blue);
+}
+
+#sleep h1, #sleep h3{
+    color: var(--dark-blue);
 }
 
 .activity h1, .activity h3{

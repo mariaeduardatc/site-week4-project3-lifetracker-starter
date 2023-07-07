@@ -48,3 +48,14 @@
 #dash-exercise .dash-tags{
     background-color: var(--accent-green);
 }
+
+.empty-dash{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+#exercise-empty{
+    background-color: var(--accent-green);
+}

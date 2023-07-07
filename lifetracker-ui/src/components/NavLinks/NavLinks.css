@@ -4,8 +4,16 @@
     align-items: center;
 }
 
+.nav-links{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    margin-left: auto;
+}
+
 .navLinks a{
-    color: var(--accent-green);
+    color: var(--green);
 }
 
 .btn{
@@ -24,3 +32,11 @@
     color: var(--dark-blue);
 }
 
+.logo{
+    margin-top: 10px;
+    margin-left: 50px;
+}
+  
+.logo img{
+    height: 50px;
+}

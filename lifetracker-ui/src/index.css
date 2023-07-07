@@ -1,9 +1,11 @@
 :root{
     --dark-blue: #2c4047;
     --light-blue: #70a5b8;
+    --light-purple: #d1c3ff88;
     --pure-white: #fff;
     --grey-bg: #f7f7f7;
-    --accent-green: #1dba88;
+    --green: #0f7454;
+    --accent-green: #80c9b2cc;
     --green-clear: #24b98a16;
     --muted: #969696;
     --font-dark: #212121;

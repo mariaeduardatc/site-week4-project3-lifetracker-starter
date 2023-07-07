@@ -23,17 +23,17 @@ function ActivityPage({ user, isLogged }) {
       </div>
       <div className="activity-info">
         <div className="column">
-          <div className="activity">
+          <div className="activity" id="exercise">
             <h3>Total Exercise Minutes</h3>
             <h1>{exerciseHours}</h1>
           </div>
-          <div className="activity">
+          <div className="activity" id="nutrition">
             <h3>Average Daily Calories</h3>
             <h1>{caloriesTotal}</h1>
           </div>
         </div>
         <div className="column">
-          <div className="activity">
+          <div className="activity" id="sleep">
             <h3>Average Hours of Sleep</h3>
             <h1>{sleepTotal}</h1>
           </div>

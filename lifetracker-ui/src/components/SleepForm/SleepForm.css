@@ -2,7 +2,13 @@
     background-color: var(--light-blue);
 }
 
+
 #activity-sleep input{
      width: 250px;
      height: 30px;
+}
+
+#sleep-btn{
+    background-color: var(--light-blue);
+    color: white;
 }

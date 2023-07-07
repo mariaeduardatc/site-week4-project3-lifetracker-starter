@@ -23,7 +23,7 @@ export default function SleepDashboard({user}){
           const message = err?.response?.data?.error?.message;
           setErrors((e) => ({
             ...e,
-            sleepInput: message ? String(message) : String(err),
+            sleeplog: message ? String(message) : String(err),
           }));
         }
     };
@@ -65,7 +65,7 @@ export default function SleepDashboard({user}){
         </div>
       </div>
     ) : (
-      <div className="empty-dash">
+      <div className="empty-dash" id="sleep-empty">
         <div className="dash-title">
           <h1>Sleep</h1>
         </div>

@@ -1,0 +1,12 @@
+#activity-nutrition .activity-title{
+    background-color: var(--light-purple);
+}
+
+#food-name, #food-image{
+    width: 300px;
+}
+
+#nut-btn{
+    background-color: var(--light-purple);
+    color: var(--dark-blue);
+}

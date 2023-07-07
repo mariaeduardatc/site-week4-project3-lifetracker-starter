@@ -94,6 +94,7 @@ export default function NutritionForm({ isLogged, user }) {
           <input
             name="name"
             className="form-input"
+            id="food-name"
             type="text"
             placeholder="Food name"
             value={nutritionInput.name}
@@ -123,13 +124,14 @@ export default function NutritionForm({ isLogged, user }) {
           <input
             name="imageUrl"
             className="form-input"
+            id="food-image"
             type="text"
             placeholder="Image Url"
             value={nutritionInput.imageUrl}
             onChange={handleNutritionInput}
           ></input>
 
-          <button className="btn" onClick={registerNutrition}>
+          <button className="btn" id="nut-btn" onClick={registerNutrition}>
             {isLoading ? "Loading..." : "Save"}
           </button>
         </div>

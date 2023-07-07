@@ -133,7 +133,7 @@ function ExercisePage({ isLogged, user }) {
             <button onClick={() => handleIncrease("intensity")}>+</button>
             <button onClick={() => handleDecrease("intensity")}>-</button>
           </div>
-          <button className="btn" onClick={registerExercise}>
+          <button className="btn" id="exercise-btn" onClick={registerExercise}>
             {isLoading ? "Loading..." : "Save"}
           </button>
         </div>

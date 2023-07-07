@@ -2,6 +2,7 @@
     background-color: var(--light-blue);
 }
 
-#dash-sleep .dash-title{
+#dash-sleep .dash-title, #sleep-empty .dash-title{
     background-color: var(--light-blue);
 }
+

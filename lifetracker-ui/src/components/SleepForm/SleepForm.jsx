@@ -100,7 +100,7 @@ export default function SleepForm({ isLogged, user }) {
             onChange={handleSleepInput}
           ></input>
 
-          <button className="btn" onClick={registerSleep}>
+          <button className="btn" id="sleep-btn" onClick={registerSleep}>
             {isLoading ? "Loading..." : "Save"}
           </button>
         </div>

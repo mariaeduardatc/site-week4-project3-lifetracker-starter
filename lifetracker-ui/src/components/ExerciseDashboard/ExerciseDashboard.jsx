@@ -70,7 +70,7 @@ function ExerciseDashboard({ user }) {
       </div>
     ) : (
       <div className="empty-dash">
-        <div className="dash-title">
+        <div className="dash-title" id="exercise-empty">
           <h1>Exercise</h1>
         </div>
         <h5>You still have no exercises!</h5>

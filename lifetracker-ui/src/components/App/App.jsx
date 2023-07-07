@@ -84,7 +84,7 @@ function App() {
             element={<NutritionForm isLogged={isLogged} user={appState?.user}  />}
           />
           <Route
-            path="/auth/sleep"
+            path="/auth/nutrition"
             element={<NutritionDashboard user={appState?.user} />}
           />
 
