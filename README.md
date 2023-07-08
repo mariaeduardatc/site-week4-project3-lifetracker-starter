@@ -21,6 +21,7 @@ By the end of this project you will be able to...
 
 ## Application Features
 Rendered website: https://metc-lifetracker.onrender.com/
+Loom: https://www.loom.com/share/54c0d78797d54c47a1ea8098ef6101dc?sid=727079d3-8d87-441c-a7e6-02be2f691950
 ### Core Features
 
 - [x] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about. *Note:* This is the only page that unauthenticated users should be able to view.
