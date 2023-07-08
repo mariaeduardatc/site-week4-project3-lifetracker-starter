@@ -10,7 +10,7 @@ function ExerciseDashboard({ user }) {
   const getExercise = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3001/auth/getexercise/${user}`
+        `https://metc-lifetracker-be.onrender.com/auth/getexercise/${user}`
       );
 
       if (response?.data?.exerciseById) {

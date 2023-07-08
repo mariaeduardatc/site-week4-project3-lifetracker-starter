@@ -32,7 +32,7 @@ function App() {
 
   const statsActivity = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/auth/activity/${appState?.user}`);
+      const response = await axios.get(`https://metc-lifetracker-be.onrender.com/auth/activity/${appState?.user}`);
       const { totalExercise, avgCalories, avgSleep, maxCalories, avgIntensity, totalSleep } = response.data;
       setStats({
         exerciseMinutes: totalExercise,

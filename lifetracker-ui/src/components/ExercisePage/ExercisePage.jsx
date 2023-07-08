@@ -58,7 +58,7 @@ function ExercisePage({ isLogged, user, statsActivity }) {
 
     try {
       const response = await axios.post(
-        "http://localhost:3001/auth/exercise/create",
+        "https://metc-lifetracker-be.onrender.com/auth/exercise/create",
         exerciseInput
       );
 

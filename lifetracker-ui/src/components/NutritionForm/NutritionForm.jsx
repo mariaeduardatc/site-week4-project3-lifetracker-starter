@@ -56,7 +56,7 @@ export default function NutritionForm({ isLogged, user }) {
 
     try {
       const response = await axios.post(
-        "http://localhost:3001/auth/nutrition/create",
+        "https://metc-lifetracker-be.onrender.com/auth/nutrition/create",
         nutritionInput
       );
 

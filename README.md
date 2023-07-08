@@ -20,7 +20,7 @@ By the end of this project you will be able to...
 - [x] Store user-authenticated JWT tokens in the browser's local storage for persisted authentication
 
 ## Application Features
-
+Rendered website: https://metc-lifetracker.onrender.com/
 ### Core Features
 
 - [x] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about. *Note:* This is the only page that unauthenticated users should be able to view.

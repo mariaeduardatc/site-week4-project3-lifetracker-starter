@@ -10,7 +10,7 @@ export default function SleepDashboard({user}){
     const getSleep = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:3001/auth/getsleep/${user}`
+            `https://metc-lifetracker-be.onrender.com/auth/getsleep/${user}`
           );
     
           if (response?.data?.sleepById) {

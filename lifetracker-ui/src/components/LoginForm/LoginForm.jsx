@@ -25,7 +25,7 @@ function LoginForm({ setAppState, setIsLogged }) {
   const loginUser = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3001/auth/login",
+        "https://metc-lifetracker-be.onrender.com/auth/login",
         login
       );
       if (response?.data) {

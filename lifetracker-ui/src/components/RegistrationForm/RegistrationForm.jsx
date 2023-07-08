@@ -37,7 +37,7 @@ function RegistrationForm({ setAppState, setIsLogged }) {
     }
 
     try {
-      const response = await axios.post("http://localhost:3001/auth/register", {
+      const response = await axios.post("https://metc-lifetracker-be.onrender.com/auth/register", {
         email: register.email,
         username: register.username,
         firstName: register.firstName,
