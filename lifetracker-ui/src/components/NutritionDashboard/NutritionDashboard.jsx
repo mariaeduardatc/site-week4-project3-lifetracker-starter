@@ -10,7 +10,7 @@ export default function NutritionDashboard({user}){
     const getNutrition = async () => {
         try {
           const response = await axios.get(
-            `http://localhhttps://metc-lifetracker-be.onrender.comost:3001/auth/getnutrition/${user}`
+            `https://metc-lifetracker-be.onrender.com/auth/getnutrition/${user}`
           );
     
           if (response?.data?.nutritionById) {
