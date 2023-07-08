@@ -64,6 +64,32 @@ class Sleep {
 
     return sleepTag;
   }
+
+  static async averageSleep(userId) {
+    const result = await db.query(
+      `SELECT AVG(EXTRACT(EPOCH FROM (wake_time - bed_time)) / 3600) AS average_sleep_hours
+       FROM sleep
+       WHERE user_id = $1`,
+      [userId]
+    );
+  
+    const { average_sleep_hours } = result.rows[0];
+    return average_sleep_hours;
+  }
+
+  static async getTotalHoursSlept(userId) {
+    const result = await db.query(
+      `SELECT SUM(EXTRACT(EPOCH FROM (wake_time - bed_time)) / 3600) AS total_hours_slept
+       FROM sleep
+       WHERE user_id = $1`,
+      [userId]
+    );
+  
+    const { total_hours_slept } = result.rows[0];
+    return total_hours_slept;
+  }
+  
+  
 }
 
 module.exports = Sleep;

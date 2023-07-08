@@ -12,7 +12,7 @@ export default function NutritionForm({ isLogged, user }) {
     category: "",
     calories: 0,
     imageUrl: null,
-    userId: user.id,
+    userId: user,
   });
 
   const handleIncrease = (field) => {

@@ -120,7 +120,7 @@ function ExercisePage({ isLogged, user, statsActivity }) {
               type="number"
               name="duration"
               placeholder="Duration"
-              value={parseInt(exerciseInput.duration)}
+              value={Number(exerciseInput.duration)}
               onChange={handleExerciseInput}
             ></input>
             <button onClick={() => handleIncrease("duration")}>+</button>
@@ -131,7 +131,7 @@ function ExercisePage({ isLogged, user, statsActivity }) {
               type="number"
               name="intensity"
               placeholder="Intensity"
-              value={parseInt(exerciseInput.intensity)}
+              value={Number(exerciseInput.intensity)}
             ></input>
             <button onClick={() => handleIncrease("intensity")}>+</button>
             <button onClick={() => handleDecrease("intensity")}>-</button>

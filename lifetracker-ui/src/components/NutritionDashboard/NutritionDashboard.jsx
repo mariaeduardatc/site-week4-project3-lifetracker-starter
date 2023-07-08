@@ -10,7 +10,7 @@ export default function NutritionDashboard({user}){
     const getNutrition = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:3001/auth/getnutrition/${user.id}`
+            `http://localhost:3001/auth/getnutrition/${user}`
           );
     
           if (response?.data?.nutritionById) {

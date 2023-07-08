@@ -2,9 +2,8 @@ import "./ActivityPage.css";
 import { Link } from "react-router-dom";
 
 
-function ActivityPage({ user, isLogged, exerciseMinutes, maxSleep, maxExercise, maxCalories, sleepTotal, caloriesTotal  }) {
+function ActivityPage({ user, isLogged, exerciseMinutes, maxSleep, avgExercise, maxCalories, sleepAvg, avgCalories  }) {
   
-
   const body = isLogged ? (
     <>
       <div className="header">
@@ -29,13 +28,13 @@ function ActivityPage({ user, isLogged, exerciseMinutes, maxSleep, maxExercise, 
           </div>
           <div className="activity" id="nutrition">
             <h3>Average Daily Calories</h3>
-            <h1>{caloriesTotal}</h1>
+            <h1>{Number(avgCalories).toFixed(0)}</h1>
           </div>
         </div>
         <div className="column">
           <div className="activity" id="sleep">
             <h3>Average Hours of Sleep</h3>
-            <h1>{sleepTotal}</h1>
+            <h1>{Math.abs(Number(sleepAvg).toFixed(0))}</h1>
           </div>
           <div id="more-stats">
             <h3>More stats</h3>
@@ -50,13 +49,13 @@ function ActivityPage({ user, isLogged, exerciseMinutes, maxSleep, maxExercise, 
                 <h5>
                   Average Exercise <br /> Intensity
                 </h5>
-                <h3>{maxExercise}</h3>
+                <h3>{Number(avgExercise).toFixed(2)}</h3>
               </div>
               <div className="stats">
                 <h5>
                   Total Number of <br /> Hours Slept
                 </h5>
-                <h3>{maxSleep}</h3>
+                <h3>{Math.abs(Number(maxSleep).toFixed(0))}</h3>
               </div>
             </div>
           </div>

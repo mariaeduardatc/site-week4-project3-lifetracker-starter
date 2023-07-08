@@ -67,6 +67,31 @@ class Nutrition {
 
     return nutritionTag;
   }
+
+  static async averageCalories(userId) {
+    const result = await db.query(
+      `SELECT AVG(calories) AS average_calories
+       FROM nutrition
+       WHERE user_id = $1`,
+      [userId]
+    );
+  
+    const { average_calories } = result.rows[0];
+    return average_calories;
+  }
+  
+  static async getMaxCalories(userId) {
+    const result = await db.query(
+      `SELECT MAX(calories) AS max_calories
+       FROM nutrition
+       WHERE user_id = $1`,
+      [userId]
+    );
+  
+    const { max_calories } = result.rows[0];
+    return max_calories;
+  }
+  
 }
 
 module.exports = Nutrition;

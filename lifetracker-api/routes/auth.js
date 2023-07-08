@@ -19,7 +19,7 @@ router.post("/register", async (req, res) => {
         expiresIn: "1h",
       }
     );
-    res.status(201).json({ token:token, user });
+    res.status(201).json({ token: token, user });
   } catch (err) {
     throw err;
   }
@@ -54,7 +54,7 @@ router.get("/getexercise/:userId", async function (req, res) {
   try {
     const userId = req.params.userId;
     const exerciseById = await Exercise.getExerciseById(userId);
-    console.log(exerciseById)
+    console.log(exerciseById);
     return res.status(200).json({ exerciseById });
   } catch (err) {
     throw err;
@@ -82,7 +82,7 @@ router.get("/getsleep/:userId", async function (req, res) {
 
 router.post("/nutrition/create", async function (req, res) {
   try {
-    console.log(req.body, 'testing')
+    console.log(req.body, "testing");
     const nutrition = await Nutrition.addNutrition(req.body);
     return res.status(200).json({ nutrition });
   } catch (err) {
@@ -101,14 +101,20 @@ router.get("/getnutrition/:userId", async function (req, res) {
 });
 
 // calculating stats for main page
-router.get('/activity/:userId', async function (req, res) {
+router.get("/activity/:userId", async function (req, res) {
   try {
     const userId = req.params.userId;
     const totalExercise = await Exercise.totalExercise(userId);
-    return res.status(200).json({ totalExercise });
+    const avgCalories = await Nutrition.averageCalories(userId);
+    const avgSleep = await Sleep.averageSleep(userId);
+
+    const maxCalories = await Nutrition.getMaxCalories(userId)
+    const totalSleep = await Sleep.getTotalHoursSlept(userId)
+    const avgIntensity = await Exercise.averageExercise(userId)
+    return res.status(200).json({ totalExercise, avgCalories, avgSleep, maxCalories, totalSleep, avgIntensity });
   } catch (err) {
     throw err;
   }
-})
+});
 
 module.exports = router;

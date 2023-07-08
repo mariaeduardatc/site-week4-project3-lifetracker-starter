@@ -89,6 +89,18 @@ class Exercise {
     const { total_duration } = result.rows[0];
     return total_duration;
   }
+
+  static async averageExercise(userId) {
+    const result = await db.query(
+      `SELECT AVG(intensity) AS average_intensity
+       FROM exercise
+       WHERE user_id = $1`,
+      [userId]
+    );
+  
+    const { average_intensity } = result.rows[0];
+    return average_intensity;
+  }
 }
 
 module.exports = Exercise;

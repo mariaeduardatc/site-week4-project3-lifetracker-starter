@@ -22,21 +22,21 @@ function App() {
   const [appState, setAppState] = useState({});
 
   const [exerciseMinutes, setExerciseMinutes] = useState(0);
-  const [caloriesTotal, setCaloriesTotal] = useState(0);
-  const [sleepTotal, setSleepTotal] = useState(0);
+  const [avgCalories, setAvgCalories] = useState(0);
+  const [sleepAvg, setSleepAvg] = useState(0);
   const [maxCalories, setMaxCalories] = useState(0);
-  const [maxExercise, setMaxExercise] = useState(0);
+  const [avgExercise, setAvgExercise] = useState(0);
   const [maxSleep, setMaxSleep] = useState(0);
 
   const statsActivity = async () => {
     try {
       const response = await axios.get(`http://localhost:3001/auth/activity/${appState.user}`);
       setExerciseMinutes(response.data.totalExercise);
-      setCaloriesTotal();
-      setSleepTotal();
-      setMaxCalories();
-      setMaxExercise();
-      setMaxSleep();
+      setAvgCalories(response.data.avgCalories);
+      setSleepAvg(response.data.avgSleep);
+      setMaxCalories(response.data.maxCalories);
+      setAvgExercise(response.data.avgIntensity);
+      setMaxSleep(response.data.totalSleep);
     } catch (error) {
       console.log(error);
     }
@@ -88,7 +88,7 @@ function App() {
           />
           <Route
             path="/auth/activity"
-            element={<ActivityPage maxSleep={maxSleep} maxExercise={maxExercise} maxCalories={maxCalories} sleepTotal={sleepTotal} caloriesTotal={caloriesTotal} exerciseMinutes={exerciseMinutes} setAppState={setAppState} appState={appState} user={appState?.user} isLogged={isLogged} />}
+            element={<ActivityPage maxSleep={maxSleep} avgExercise={avgExercise} maxCalories={maxCalories} sleepAvg={sleepAvg} avgCalories={avgCalories} exerciseMinutes={exerciseMinutes} setAppState={setAppState} appState={appState} user={appState?.user} isLogged={isLogged} />}
           />
           <Route
             path="/auth/exercise/create"
