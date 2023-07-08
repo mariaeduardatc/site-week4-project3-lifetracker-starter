@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import "./LandingPage.css";
+import "./Landingpage.css";
 
 import bed from "../../assets/icon_bed.svg";
 import fitness from "../../assets/icon_exercise.svg";
