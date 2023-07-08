@@ -21,22 +21,27 @@ function App() {
   const [isLogged, setIsLogged] = useState(false);
   const [appState, setAppState] = useState({});
 
-  const [exerciseMinutes, setExerciseMinutes] = useState(0);
-  const [avgCalories, setAvgCalories] = useState(0);
-  const [sleepAvg, setSleepAvg] = useState(0);
-  const [maxCalories, setMaxCalories] = useState(0);
-  const [avgExercise, setAvgExercise] = useState(0);
-  const [maxSleep, setMaxSleep] = useState(0);
+  const [stats, setStats] = useState({
+    exerciseMinutes: 0,
+    avgCalories: 0,
+    sleepAvg: 0,
+    maxCalories: 0,
+    avgExercise: 0,
+    maxSleep: 0
+  });
 
   const statsActivity = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/auth/activity/${appState.user}`);
-      setExerciseMinutes(response.data.totalExercise);
-      setAvgCalories(response.data.avgCalories);
-      setSleepAvg(response.data.avgSleep);
-      setMaxCalories(response.data.maxCalories);
-      setAvgExercise(response.data.avgIntensity);
-      setMaxSleep(response.data.totalSleep);
+      const response = await axios.get(`http://localhost:3001/auth/activity/${appState?.user}`);
+      const { totalExercise, avgCalories, avgSleep, maxCalories, avgIntensity, totalSleep } = response.data;
+      setStats({
+        exerciseMinutes: totalExercise,
+        avgCalories: avgCalories,
+        sleepAvg: avgSleep,
+        maxCalories: maxCalories,
+        avgExercise: avgIntensity,
+        maxSleep: totalSleep,
+      });
     } catch (error) {
       console.log(error);
     }
@@ -44,7 +49,7 @@ function App() {
 
   useEffect(() => {
     statsActivity()
-  }, [appState.user])
+  }, [Object.values(stats)])
 
   useEffect(() => {
     const checkLoggedIn = () => {
@@ -66,7 +71,7 @@ function App() {
     };
 
     checkLoggedIn();
-  }, []);
+  }, [isLogged]);
 
   return (
     <div className="app">
@@ -88,7 +93,7 @@ function App() {
           />
           <Route
             path="/auth/activity"
-            element={<ActivityPage maxSleep={maxSleep} avgExercise={avgExercise} maxCalories={maxCalories} sleepAvg={sleepAvg} avgCalories={avgCalories} exerciseMinutes={exerciseMinutes} setAppState={setAppState} appState={appState} user={appState?.user} isLogged={isLogged} />}
+            element={<ActivityPage maxSleep={stats.maxSleep} avgExercise={stats.avgExercise} maxCalories={stats.maxCalories} sleepAvg={stats.sleepAvg} avgCalories={stats.avgCalories} exerciseMinutes={stats.exerciseMinutes} setAppState={setAppState} appState={appState} user={appState?.user} isLogged={isLogged} />}
           />
           <Route
             path="/auth/exercise/create"
